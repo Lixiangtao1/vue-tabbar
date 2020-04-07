@@ -1,6 +1,6 @@
 <template>
-  <div class="tabbar-item" @click="btnClick">
-    <!-- <slot name="class-icon"></slot> -->
+  <div class="tabbar-item" @click="btnClick" :class="{'isActive': colorChange}">
+    <!-- <slot name="class-icon"></slot>  底部tabbar文字上方的图标 -->
     <slot name="class-name"></slot>
   </div>
 </template>
@@ -8,15 +8,23 @@
 export default {
   data() {
     return {
-      props: {
-        path: String
-      }
+      
+    }
+  },
+  props: {
+    path: String
+  },
+  computed: {
+    colorChange() {
+      // 判断当前路由this.path 是否能在活跃路由中找到, 找到(不等于-1)即为当前路由 返回值为true显示isActive类
+      return this.$route.path.indexOf(this.path) !== -1;
     }
   },
   methods: {
     btnClick() {
-      // this.$router.push(this.path);
-      console.log(this.props.path)
+      this.$router.push(this.path);
+      console.log(this.path)
+
     }
   },
 }
@@ -27,5 +35,8 @@ export default {
     flex: 1;
     height: 49px;
     text-align: center;
+  }
+  .isActive {
+    color: red;
   }
 </style>
