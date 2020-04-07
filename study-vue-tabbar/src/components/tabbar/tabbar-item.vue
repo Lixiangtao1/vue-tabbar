@@ -14,6 +14,10 @@ export default {
   props: {
     path: String
   },
+  created(){
+    // console.log(this.$route.path);
+    // console.log(this.path === this.$route.path);
+  },
   computed: {
     colorChange() {
       // 判断当前路由this.path 是否能在活跃路由中找到, 找到(不等于-1)即为当前路由 返回值为true显示isActive类

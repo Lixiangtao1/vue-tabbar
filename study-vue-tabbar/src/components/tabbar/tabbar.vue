@@ -1,5 +1,6 @@
 <template>
   <div class="tabbar" >
+    <!-- 在tabbar这个组件中 使用每一个小组件 由于下方四个跳转类似将其封装成一个公用的组件 -->
     <tabbar-item :path="'/home'">
       <!-- <img src="" alt=""> -->
       <div slot="class-name">首页</div>
@@ -20,7 +21,7 @@ import tabbarItem from './tabbar-item.vue'
 export default {
   data() {
     return {
-      flag: false
+
     }
   },
   components: {
