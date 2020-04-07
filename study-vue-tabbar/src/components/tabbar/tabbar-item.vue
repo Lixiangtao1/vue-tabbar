@@ -24,7 +24,6 @@ export default {
     btnClick() {
       this.$router.push(this.path);
       console.log(this.path)
-
     }
   },
 }
